@@ -40,6 +40,7 @@ public:
         kStreamedFromLocalHost = 2,
         kIsCachingDataSource   = 4,
         kIsHTTPBasedSource     = 8,
+        kSupportNonBlockingRead = 16,
     };
 
     static sp<DataSource> CreateFromURI(
@@ -103,6 +104,7 @@ private:
     static bool gSniffersRegistered;
 
     static void RegisterSniffer_l(SnifferFunc func);
+    static void RegisterSnifferPlugin();
 
     DataSource(const DataSource &);
     DataSource &operator=(const DataSource &);
